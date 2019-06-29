@@ -2,10 +2,10 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "target": "es2016",
-    "esModuleInterop": true,
+    // "module": "commonjs",
+    "moduleResolution": "node",
     "jsx": "react",
-    "baseUrl": "./",
-    "outDir": "./dist",
+    "noEmit": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     // "noUnusedLocals": true,
