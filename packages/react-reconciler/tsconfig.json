@@ -1,16 +1,4 @@
 {
-  "include": ["src/**/*"],
-  "compilerOptions": {
-    "target": "es2016",
-    // "module": "commonjs",
-    "moduleResolution": "node",
-    "jsx": "react",
-    "noEmit": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
-  }
+  "extends": "../tsconfig.base.json",
+  "include": ["src/**/*"]
 }
