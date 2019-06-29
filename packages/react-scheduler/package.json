@@ -1,6 +1,6 @@
 {
   "name": "react-scheduler",
   "version": "0.14.0",
-  "main": "index.js",
+  "main": "src/main.ts",
   "license": "MIT"
 }
