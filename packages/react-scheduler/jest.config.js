@@ -1,8 +1,3 @@
 'use strict';
 
-module.exports = {
-  rootDir: './src',
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
-};
+module.exports = require('../jest.config');
