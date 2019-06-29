@@ -1,0 +1,13 @@
+{
+  "name": "react-reconciler",
+  "description": "React package for creating custom renderers.",
+  "version": "0.20.4",
+  "main": "src/main.ts",
+  "license": "MIT",
+  "dependencies": {
+    "react-scheduler": "^0.14.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  }
+}

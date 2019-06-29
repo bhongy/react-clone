@@ -1,0 +1,6 @@
+{
+  "name": "react",
+  "version": "16.8.6",
+  "main": "./src/main.ts",
+  "license": "MIT"
+}
