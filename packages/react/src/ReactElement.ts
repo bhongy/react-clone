@@ -1,25 +1,42 @@
-import { REACT_ELEMENT_TYPE } from './ReactSymbols';
+import {JSXElementConstructor} from './types';
+import {REACT_ELEMENT_TYPE} from 'shared/ReactSymbols';
 
-// type ReactElementKey = string | number;
-// type IntrinsicElements = {};
+export class ReactElement<
+  P = any,
+  T extends string | JSXElementConstructor<any> =
+    | string
+    | JSXElementConstructor<any>
+> {
+  /**
+   * "createElement" (renamed to "ReactElement.create")
+   */
+  // TODO overload this for better typing
+  public static create<P extends {}>(
+    type: any, // TODO type this
+    props: P,
+    key: null | string | number = null
+  ): ReactElement<P> {
+    return new ReactElement(type, props, `${key}`);
+  }
 
-type ReactChild = string | number | ReactElement;
-type ReactNode =
-  | undefined
-  | null
-  | ReactChild; /* ReactFragement | ReactPortal */
+  /**
+   * "isValidElement" (renamed to "ReactElement.is")
+   *
+   * Verifies the object is a ReactElement.
+   * See https://reactjs.org/docs/react-api.html#isvalidelement
+   */
+  public static is(maybeElement: unknown): boolean {
+    return maybeElement instanceof ReactElement;
+  }
 
-class ReactElement<T extends string = string, P extends {} = {}> {
-  private readonly $$typeof = REACT_ELEMENT_TYPE;
-  constructor(readonly type: T, readonly props: P, readonly key: string) {}
-}
+  public readonly $$typeof: symbol;
 
-// different than React. we will never call this with `config == null`
-export function createElement<T extends string, C extends { key?: string | number }>(
-  type: T,
-  config: C,
-  ...children: ReactNode[]
-) {
-  const { key, ...props } = config;
-  return new ReactElement(type, { children, ...props }, `${key}`);
+  private constructor(
+    // either intrinsic 'div' or MyComponent
+    public readonly type: T,
+    public readonly props: P,
+    public readonly key: null | string
+  ) {
+    this.$$typeof = REACT_ELEMENT_TYPE;
+  }
 }
