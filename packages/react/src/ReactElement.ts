@@ -1,5 +1,5 @@
-import {JSXElementConstructor} from './types';
-import {REACT_ELEMENT_TYPE} from 'shared/ReactSymbols';
+import { JSXElementConstructor } from './types';
+import { REACT_ELEMENT_TYPE } from 'shared/ReactSymbols';
 
 export class ReactElement<
   P = any,
@@ -14,9 +14,9 @@ export class ReactElement<
   public static create<P extends {}>(
     type: any, // TODO type this
     props: P,
-    key: null | string | number = null
+    key: null | string = null
   ): ReactElement<P> {
-    return new ReactElement(type, props, `${key}`);
+    return new ReactElement(type, props, key);
   }
 
   /**
