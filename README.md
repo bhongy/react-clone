@@ -1,6 +1,6 @@
 ## Running tests
 
-Tests cannot be run from the root. `cd` into a specific package and run tests from the package root.
+Run `yarn jest` from either root of within a package.
 
 ## TODO
 
