@@ -29,7 +29,7 @@ export class ReactElement<
     return maybeElement instanceof ReactElement;
   }
 
-  public readonly $$typeof: symbol;
+  public readonly $$typeof: Symbol;
 
   private constructor(
     // either intrinsic 'div' or MyComponent

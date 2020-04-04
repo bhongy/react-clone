@@ -1,6 +1,7 @@
 // declare const __DEV__: boolean;
 
 import { JSXElementConstructor } from './types';
+import {REACT_MEMO_TYPE} from 'shared/ReactSymbols';
 
 // TEMPORARY: a component's type i.e. intrinsics ('div') or custom components
 type ReactElementType<Props = any> = string | JSXElementConstructor<Props>;
@@ -15,10 +16,14 @@ export class ReactMemo<T extends ReactElementType> {
     // return new ReactMemo(type, compare);
   }
 
+  public readonly $$typeof: Symbol;
+
   private constructor(
     public readonly type: T
   ) // public readonly compare: null | ReactMemoCompareFn<Props> = null
-  {}
+  {
+    this.$$typeof = REACT_MEMO_TYPE;
+  }
 }
 
 export const memo = ReactMemo.create;
